@@ -9,6 +9,11 @@
 			last_name:"Unknown",
 			join_date: '2001-01-01',
 			rank_training_days: 'Unknown',
+			previous_training_days:0,
+			phone_number:'',
+			birth_date:'',
+			is_active:true,
+			program:'',
 			ranks:[]
 		},
 		
@@ -94,7 +99,7 @@
 	window.students = new Students();
 	window.classes = new Classes();
 	
-	window.StudentView = Backbone.View.extend({
+	window.StudentShowView = Backbone.View.extend({
 		tagName: 'li',
 		className: 'student',
 		events: {
@@ -104,7 +109,7 @@
 		
 		edit: function() {
 			this.model.trigger('edit', this.model);
-			console.log('Triggered edit', this.model);
+			window.location = "#/edit_student/" + this.model.id;
 		},
 		
 		remove: function() {
@@ -126,6 +131,40 @@
 		}
 	});
 	
+	window.StudentEditView = Backbone.View.extend({
+		tagName:'section',
+		className: 'student',
+		events: {
+			'click .student.list':'list',
+			'click .student.save':'save',
+			'click .student.cancel': 'cancel'
+		},
+		
+		list:function(){
+			window.location = "#";
+		},
+		
+		save: function(){
+			
+		},
+		
+		cancel: function(){
+			
+		},
+		
+		initialize: function() {
+			_.bindAll(this,'render');
+			this.template = _.template($('#student-edit-template').html());
+		},
+		
+		render: function(){
+			var renderedContent = this.template(this.model.toJSON());
+			$(this.el).html(renderedContent);
+			return this;
+		}
+		
+	});
+	
 	window.StudentListView = Backbone.View.extend({
 		tagName:'section',
 		className: 'students',
@@ -134,8 +173,7 @@
 		},
 		
 		add: function() {
-			
-			console.log('add', this.collection);
+			window.location = "#/add_student";
 		},
 		
 		initialize: function(){
@@ -150,7 +188,7 @@
 			$(this.el).html(this.template({}));
 			$students = this.$(".students");
 			collection.each(function(student){
-				var view = new StudentView({
+				var view = new StudentShowView({
 					model: student,
 					collection:collection
 				});
@@ -163,7 +201,9 @@
 	
 	window.BackboneStudents = Backbone.Router.extend({
 		routes: {
-			'':'home'
+			'':'home',
+			'/add_student':'add_student',
+			'/edit_student/:id':'edit_student'
 		},
 		
 		initialize: function(){
@@ -173,9 +213,45 @@
 		},
 		
 		home: function(){
+			if(window.students.length == 0){ window.students.fetch()}
 			var $container = $("#container");
 			$container.empty();
 			$container.append(this.studentListView.render().el);
+		},
+		
+		add_or_edit_student: function(model){
+			if(this.studentEditView != null){
+				this.studentEditView = null;
+			}
+			this.studentEditView = new StudentEditView({
+				model:model
+			});
+			var $container = $("#container");
+			$container.empty();
+			$container.append(this.studentEditView.render().el);
+		},
+		
+		edit_student: function(the_id){
+			var model = window.students.get(the_id);
+			if(model == null && window.students.length == 0){
+				model = new Student({_id:the_id});
+				model.fetch({
+					success: function(model, resp){
+						window.App.add_or_edit_student(model);
+					}
+				});
+			}
+			this.add_or_edit_student(model);
+		},
+		
+		
+		add_student: function(){
+			var model = new Student();
+			this.add_or_edit_student(model);
+		},
+		
+		defaultAction: function() {
+			console.log('default action');
 		}
 	});
 	

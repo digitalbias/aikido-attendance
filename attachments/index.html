@@ -12,7 +12,6 @@
     <meta name="author" content="David Mitchell <david.c.mitchell@gmail.com>">
 
     <link rel="stylesheet" href="style/screen.css" media="screen, projection">
-    <link rel="stylesheet" href="style/fancypants.css" media="screen, projection">
 
     <script src="js/vendor/modernizr-1.6.min.js"></script>
     <script src="js/vendor/jquery-1.6.4.js"></script>
@@ -37,8 +36,8 @@
     <script type="text/template" id="student-template">
       <button class='student edit'><img src='images/edit.png'/></button>
       <button class='student delete'><img src='images/delete.png'/></button>
-      <span class="student-first_name"><%= first_name %></span>
-      <span class="student-last_name"><%= last_name %></span>
+      <span class="student_first_name"><%= first_name %></span>
+      <span class="student_last_name"><%= last_name %></span>
       <span class='student_current-rank'>(<%= this.model.current_rank().alternate_name %>/<%= this.model.current_rank().date %>)</span>
       <span class="student_training-days">Days: <%= rank_training_days %></span>
       <ol class="ranks" style='display:none'>
@@ -47,6 +46,30 @@
         <% }); %>
       </ol>
     </script>
+
+	<script type='text/template' id="student-edit-template">
+		<h1>Aikido Student</h1>
+		<button class='student list'><img src='images/add.png'/></button>
+		<ul class='attributes'>
+			<li><span class="student_first_name">First name: <input name='first_name' type='text' value='<%= first_name %>' placeholder='First name'/></span></li>
+			<li><span class="student_last_name">Last name: <input name='last_name' type='text' value='<%= last_name %>' placeholder='Last name'/></span></li>
+			<li><span class="student_last_name">Join date: <input name='join_date' type='text' value='<%= join_date %>' placeholder='2000-01-01'/></span></li>
+			<li><span class="student_last_name">Previous training days: <input name='previous_training_days' type='text' value='<%= previous_training_days %>' placeholder='0'/></span></li>
+			<li><span class="student_last_name">Phone number: <input name='phone_number' type='text' value='<%= phone_number %>' placeholder='801-555-5555'/></span></li>
+			<li><span class="student_last_name">Birth date: <input name='birth_date' type='text' value='<%= birth_date %>' placeholder='2000-01-01'/></span></li>
+			<li><span class="student_last_name">Active?: <input name='is_active' type='text' value='<%= is_active %>' placeholder='Last name'/></span></li>
+			<li><span class="student_last_name">Program: <input name='program' type='text' value='<%= program %>' placeholder='Last name'/></span></li>
+			<li><ol class="ranks">
+			<% _.each(ranks, function(rank) { %>
+				<li><%= rank.name %> (<%= rank.alternate_name %>) <span class='date'><%= rank.date%></span></li>
+			<% }); %>
+			</ol></li>
+			<li>
+			<button class='student save'><img src='images/save.png'></button>
+			<button class='student cancel'><img src='images/delete.png'></button>
+			</li>
+		</ul>
+	</script>
 
     <script type="application/javascript">
 		jQuery(function(){

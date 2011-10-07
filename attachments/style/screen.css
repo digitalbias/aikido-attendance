@@ -195,7 +195,7 @@ ul.block {
     cursor: pointer;
 }
 
-.students {
+.students, .attributes {
 	list-style-type: none;
 }
 
