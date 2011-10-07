@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+
+    <title>Backbone Attendance</title>
+    <meta name="author" content="David Mitchell <david.c.mitchell@gmail.com>">
+
+    <link rel="stylesheet" href="style/screen.css" media="screen, projection">
+    <link rel="stylesheet" href="style/fancypants.css" media="screen, projection">
+
+    <script src="js/vendor/modernizr-1.6.min.js"></script>
+    <script src="js/vendor/jquery-1.6.4.js"></script>
+    <script src="js/vendor/jquery.couch.js"></script>
+    <script src="js/vendor/underscore.js"></script>
+    <script src="js/vendor/backbone.js"></script>
+    <script src="js/vendor/backbone-couchdb.js"></script>
+    <script src="js/vendor/backbone-relational.js"></script>
+    <script src="js/Attendance.js"></script>
+
+    <script type='text/template' id='classes-template'>
+		<h1>Aikido Classes</h1>
+		<ul class'classes'></ul>
+	</script>
+
+	<script type="text/template" id="students-template">
+		<h1>Aikido Students</h1>
+		<button class='student add'><img src='images/add.png'/></button>
+		<ul class='students'></ul>
+    </script>
+
+    <script type="text/template" id="student-template">
+      <button class='student edit'><img src='images/edit.png'/></button>
+      <button class='student delete'><img src='images/delete.png'/></button>
+      <span class="student-first_name"><%= first_name %></span>
+      <span class="student-last_name"><%= last_name %></span>
+      <span class='student_current-rank'>(<%= this.model.current_rank().alternate_name %>/<%= this.model.current_rank().date %>)</span>
+      <span class="student_training-days">Days: <%= rank_training_days %></span>
+      <ol class="ranks" style='display:none'>
+        <% _.each(ranks, function(rank) { %>
+          <li><%= rank.name %> (<%= rank.alternate_name %>) <span class='date'><%= rank.date%></span></li>
+        <% }); %>
+      </ol>
+    </script>
+
+    <script type="application/javascript">
+		jQuery(function(){
+			window.students.fetch();
+		});
+    </script>
+
+  </head>
+
+  <body>
+    <div id="container">Loading....</div>
+  </body>
+</html>

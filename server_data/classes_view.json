@@ -1,0 +1,8 @@
+{"total_rows":6,"offset":0,"rows":[
+{"id":"aikikai_class_1","key":"classes","value":{"_id":"aikikai_class_1","_rev":"3-1262e68be070d1c177bf302bc98ec824","collection":"classes","date":"2011-09-19","students":["student_1"],"notes":"Koshi nage"}},
+{"id":"class_1","key":"classes","value":{"_id":"class_1","_rev":"3-5b997e6a76dd02a75f2a6926fb0885f1","collection":"classes","date":"2011-08-23","notes":"Intro","students":["student_1","student_2"]}},
+{"id":"class_2","key":"classes","value":{"_id":"class_2","_rev":"3-8ff7840cd0aab4e2bfda27734deea4e1","collection":"classes","date":"2011-08-25","notes":"Stances","students":["student_1","student_2"]}},
+{"id":"class_3","key":"classes","value":{"_id":"class_3","_rev":"3-b593224c55a91eba57863d996e654e6d","collection":"classes","date":"2011-08-30","notes":"Rolls","students":["student_1","student_2"]}},
+{"id":"class_4","key":"classes","value":{"_id":"class_4","_rev":"3-32b2bee5b2279f1aea1598d573f68924","collection":"classes","date":"2011-09-22","notes":"Field trip to Utah Aikikai","students":["student_1","student_2"]}},
+{"id":"class_5","key":"classes","value":{"_id":"class_5","_rev":"3-968d546a0d687de38abc3c2daeb63cb5","collection":"classes","date":"2011-09-27","notes":"Shomenuchi Ikkyo Undo","students":["student_1","student_2"]}}
+]}
