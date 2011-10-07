@@ -83,11 +83,6 @@
 	window.Classes = Backbone.Collection.extend({
 		model:Class,
 		url: '/classes'
-		// ,
-		// db: {
-		// 	view:'classes',
-		// 	filter: Backbone.couch_connector.config.ddoc_name + "/classes"
-		// }
 	});
 	
 	window.StudentClasses = window.Classes.extend({
