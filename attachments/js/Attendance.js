@@ -1,4 +1,10 @@
 (function($) {
+
+	Backbone.View.prototype.close = function(){
+	  this.remove();
+	  this.unbind();
+	}
+	
 	Backbone.couch_connector.config.db_name = "aikido";
 	Backbone.couch_connector.config.ddoc_name = "attendance";
 //	Backbone.couch_connector.config.global_changes = true;
@@ -57,11 +63,6 @@
 	window.Students = Backbone.Collection.extend({
 		model:Student,
 		url: '/students'
-		// ,
-		// db: {
-		// 	view:'students',
-		// 	filter: Backbone.couch_connector.config.ddoc_name + "/students"
-		// }
 	});
 	
 	window.Class = Backbone.RelationalModel.extend({
@@ -130,13 +131,13 @@
 		tagName:'section',
 		className: 'student',
 		events: {
-			'click .student.list':'list',
+			'click .student.add':'add',
 			'click .student.save':'save',
 			'click .student.cancel': 'cancel'
 		},
 		
-		list:function(){
-			window.location = "#";
+		add:function(){
+			window.location = "#/add_student";
 		},
 		
 		save: function(){
@@ -208,7 +209,12 @@
 		},
 		
 		home: function(){
-			if(window.students.length == 0){ window.students.fetch()}
+			if(window.students.length == 0){ window.students.fetch() }
+			if(this.studentListView != null){
+				this.studentListView.close();
+				this.studentListView = null;
+			}
+			this.studentListView = new StudentListView({collection: window.students});
 			var $container = $("#container");
 			$container.empty();
 			$container.append(this.studentListView.render().el);
@@ -227,16 +233,17 @@
 		},
 		
 		edit_student: function(the_id){
+			var self = this;
 			var model = window.students.get(the_id);
 			if(model == null && window.students.length == 0){
 				model = new Student({_id:the_id});
 				model.fetch({
 					success: function(model, resp){
-						window.App.add_or_edit_student(model);
+						self.add_or_edit_student(model);
 					}
 				});
 			}
-			this.add_or_edit_student(model);
+			self.add_or_edit_student(model);
 		},
 		
 		

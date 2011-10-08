@@ -84,11 +84,11 @@ ul {padding: 0 2em 1.2em;}
 }
 
 /* navigation */
-.navigation {
+.nav {
 	background: #DED9D0 url(../images/nav.gif) repeat-x; height: 41px;
 	border-top: 1px solid #996;
 }
-.navigation a {
+.nav a {
 	background: #FFF url(../images/nav.gif) repeat-x;
 	border-right: 1px solid #C9C6B3;
 	color: #553;
@@ -99,7 +99,7 @@ ul {padding: 0 2em 1.2em;}
 	text-align: center;
 	text-decoration: none;
 }
-.navigation a:hover,.navigation a#active {background-position: left bottom; color: #331;}
+.nav a:hover,.navigation a#active {background-position: left bottom; color: #331;}
 
 /* main */
 .main#two-columns {background: #FFF url(../images/two-columns.gif) repeat-y;}
@@ -184,6 +184,37 @@ ul.block {
 
 .right .block,.right .block li {border-color: #DCDACC;}
 .right .block li a:hover {background: #F2F0EA;}
+
+.nav ul {
+	display:block;
+	list-style:none;
+}
+
+.nav ul, .nav li {
+	margin: 0;
+}
+
+.nav ul li {
+	display:inline;
+	margin-top:1em;
+	margin-left:0em;
+}
+/*
+.nav ul li a {
+    color:#aaa;
+    text-decoration:none;
+    font-size:larger;
+    padding:.3em;
+}
+
+.nav a:hover {
+    color:#fff;
+    background:#7A6A49;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+*/
 
 .student button.action {
     width: 16px;
