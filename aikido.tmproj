@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>attachments/js/Attendance.js</string>
+	<string>server_data/classes_view.json</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -26,58 +26,42 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>70</integer>
+				<integer>17</integer>
 				<key>line</key>
-				<integer>36</integer>
+				<integer>82</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>13</integer>
+			<integer>58</integer>
 		</dict>
 		<key>attachments/js/Attendance.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>75</integer>
 				<key>line</key>
-				<integer>5</integer>
+				<integer>216</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>4</integer>
+			<integer>0</integer>
 		</dict>
 		<key>attachments/js/vendor/backbone-couchdb.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>40</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>77</integer>
+				<integer>219</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>56</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>17</integer>
-				<key>line</key>
-				<integer>77</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>40</integer>
-				<key>line</key>
-				<integer>77</integer>
-			</dict>
+			<integer>186</integer>
 		</dict>
 		<key>attachments/js/vendor/jquery.couch.js</key>
 		<dict>
@@ -91,27 +75,72 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>852</integer>
+			<integer>825</integer>
+		</dict>
+		<key>attachments/style/screen.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>117</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>83</integer>
 		</dict>
 		<key>attendance.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>34</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>55</integer>
+				<integer>91</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>39</integer>
+			<integer>58</integer>
+		</dict>
+		<key>server_data/byCollection.json</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>723</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>server_data/classes_view.json</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>12</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>attachments/index.html</string>
 		<string>attachments/js/Attendance.js</string>
+		<string>attachments/style/screen.css</string>
+		<string>server_data/byCollection.json</string>
+		<string>server_data/classes_view.json</string>
 		<string>attachments/js/vendor/backbone-couchdb.js</string>
 		<string>attachments/js/vendor/jquery.couch.js</string>
 		<string>attendance.js</string>
@@ -119,6 +148,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{791, 179}, {649, 699}}</string>
+	<string>{{570, 179}, {870, 699}}</string>
 </dict>
 </plist>
