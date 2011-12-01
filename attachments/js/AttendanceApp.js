@@ -5,7 +5,9 @@
 			'':'home',
 			'/add_student':'add_student',
 			'/edit_student/:id':'edit_student',
-			'/classes':'classes'
+			'/classes':'classes',
+			'/add_class':'add_class',
+			'/edit_class':'edit_class'
 		},
 		
 		initialize: function(){
@@ -27,6 +29,7 @@
 		},
 		
 		classes: function() {
+			if(window.classes.length == 0){ window.classes.fetch() }
 			if(this.classListView != null){
 				this.classListView.close();
 				this.classListView = null;
@@ -67,6 +70,37 @@
 		add_student: function(){
 			var model = new Student();
 			this.add_or_edit_student(model);
+		},
+		
+		add_or_edit_class: function(model) {
+			if(this.classEditView != null){
+				this.classEditView = null;
+			}
+			this.classEditView = new ClassEditView({
+				model:model
+			});
+			var $container = $("#container");
+			$container.empty();
+			$container.append(this.classEditView.render().el);
+		},
+		
+		edit_class: function(the_id) {
+			var self = this;
+			var model = window.classes.get(the_id);
+			if(model == null && window.classes.length == 0){
+				model = new Class({_id:the_id});
+				model.fetch({
+					success: function(model, resp){
+						self.add_or_edit_class(model);
+					}
+				});
+			}
+			self.add_or_edit_class(model);
+		},
+		
+		add_class: function() {
+			var model = new Class();
+			this.add_or_edit_class(model);
 		},
 		
 		defaultAction: function() {

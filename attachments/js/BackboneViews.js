@@ -111,12 +111,44 @@
 	});
 
 	window.ClassShowView = Backbone.View.extend({
+		tagName: 'li',
+		className: 'class',
+		events: {
+			'click .class.edit' : 'edit',
+			'click .class.delete': 'remove'
+		},
+		
+		edit: function() {
+			this.model.trigger('edit', this.model);
+			window.location = "#/edit_class/" + this.model.id;
+		},
+		
+		remove: function() {
+			this.model.trigger('remove', this.model);
+			console.log('Triggered remove', this.model);
+		},
+		
+		initialize: function(){
+			_.bindAll(this, 'render');
+			this.model.bind('change', this.render);
+			
+			this.template = _.template($('#class-template').html());
+		},
+		
+		render: function(){
+			var renderedContent = this.template(this.model.toJSON());
+			$(this.el).html(renderedContent);
+			return this;
+		}
+	});
+
+	window.ClassEditView = Backbone.View.extend({
 		tagName:'section',
 		className: 'class',
 		events: {
-			'click .klass.add':'add',
-			'click .klass.save':'save',
-			'click .klass.cancel': 'cancel'
+			'click .class.add':'add',
+			'click .class.save':'save',
+			'click .class.cancel': 'cancel'
 		},
 		
 		add:function(){
@@ -143,13 +175,12 @@
 		}
 		
 	});
-	
 
 	window.ClassListView = Backbone.View.extend({
 		tagName:'section',
 		className: 'class',
 		events: {
-			'click .klass.add': 'add'
+			'click .class.add': 'add'
 		},
 		
 		add: function() {

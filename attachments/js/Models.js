@@ -83,6 +83,13 @@
 	});
 
 	window.students = new Students();
+	window.students.comparator = function(student) {
+		return student.get("last_name") + " " + student.get("first_name");
+	};
+	
 	window.classes = new Classes();
+	window.classes.comparator = function(klass) {
+		return klass.get("date");
+	};
 
 })(jQuery);

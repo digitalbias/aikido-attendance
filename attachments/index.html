@@ -27,17 +27,30 @@
 
     <script type='text/template' id='classes-template'>
 		<h1>Aikido Classes</h1>
-		<ul class'classes'></ul>
+		<button class='class add'><img src='images/add.png'/></button>
+		<ul class='classes'></ul>
 	</script>
 	
-	<script type="text/template" id="classes-template">
-		<h1>Aikido Classes</h1>
-		<button class='klass add'><img src='images/add.png'/></button>
-		<ul class="classes"></ul>
+    <script type="text/template" id="class-template">
+		<%= date %> <%= notes %>
 	</script>
 
-    <script type="text/template" id="class-template">
-		Class Template
+    <script type="text/template" id="class-edit-template">
+		<h1>Aikido Class</h1>
+		<button class='class add'><img src='images/add.png'/></button>
+		<ul class='attributes'>
+			<li><span class="class_date">Date: <input name='date' type='text' value='<%= date %>' placeholder='2000-01-01'/></span></li>
+			<li>Notes: <textarea name='notes' rows="3" cols="50" value='<%= notes %>' /></li>
+			<li><ol class="ranks">
+			<% _.each(students, function(student) { %>
+				<li><%= student.first_name %> <%= student.last_name %></li>
+			<% }); %>
+			</ol></li>
+			<li>
+			<button class='class save'><img src='images/save.png'></button>
+			<button class='class cancel'><img src='images/delete.png'></button>
+			</li>
+		</ul>
 	</script>
 
 	<script type="text/template" id="students-template">

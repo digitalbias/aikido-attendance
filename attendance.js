@@ -36,7 +36,7 @@ ddoc.views.students = {
 ddoc.views.classes = {
 	map:function(doc) {
 		if(doc.collection == "classes"){
-			emit(doc.collection, doc);
+			emit(doc.date, doc);
 		}
 	}
 }
