@@ -7,7 +7,7 @@
 			'/edit_student/:id':'edit_student',
 			'/classes':'classes',
 			'/add_class':'add_class',
-			'/edit_class':'edit_class'
+			'/edit_class/:id':'edit_class'
 		},
 		
 		initialize: function(){

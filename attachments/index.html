@@ -32,6 +32,9 @@
 	</script>
 	
     <script type="text/template" id="class-template">
+	    <button class='class edit'><img src='images/edit.png'/></button>
+	    <button class='class delete'><img src='images/delete.png'/></button>
+
 		<%= date %> <%= notes %>
 	</script>
 
@@ -40,7 +43,7 @@
 		<button class='class add'><img src='images/add.png'/></button>
 		<ul class='attributes'>
 			<li><span class="class_date">Date: <input name='date' type='text' value='<%= date %>' placeholder='2000-01-01'/></span></li>
-			<li>Notes: <textarea name='notes' rows="3" cols="50" value='<%= notes %>' /></li>
+			<li>Notes: <textarea name='notes' rows="3" cols="50"><%= notes %></textarea></li>
 			<li><ol class="ranks">
 			<% _.each(students, function(student) { %>
 				<li><%= student.first_name %> <%= student.last_name %></li>

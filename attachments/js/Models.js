@@ -89,7 +89,8 @@
 	
 	window.classes = new Classes();
 	window.classes.comparator = function(klass) {
-		return klass.get("date");
+		date = new Date(klass.get("date"));
+		return -date;
 	};
 
 })(jQuery);

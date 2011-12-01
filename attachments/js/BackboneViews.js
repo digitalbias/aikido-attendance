@@ -60,7 +60,8 @@
 		},
 		
 		cancel: function(){
-			
+			console.log("canceling edit");
+			window.location = "#"
 		},
 		
 		initialize: function() {
@@ -160,7 +161,7 @@
 		},
 		
 		cancel: function(){
-			
+			window.location = "#/classes"
 		},
 		
 		initialize: function() {
