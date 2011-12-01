@@ -9,4 +9,4 @@ To publish to couchdb,
 
 couchapp push attendance.js http://localhost:5984/aikido
 
-There are still issues with the couchdb deployment. For example, the /students url does not resolve yet within couchdb to the correct url
+There are still issues with the couchdb deployment. For example, the /classes url does not resolve yet within couchdb to the correct url
