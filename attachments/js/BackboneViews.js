@@ -157,7 +157,25 @@
 		},
 		
 		save: function(){
+			var date = $("[name=date]").val();
+			var notes = $("[name=notes]").val();
+			var id = getId(window.location.hash);
 			
+			if(id == "add_class") {
+				window.classes.create({
+					"date":date,
+					"notes":notes
+				});
+			} else {
+				model = window.classes.get(id);
+				model.set({
+					"date":date,
+					"notes":notes
+				});
+				model.save();
+			}
+			
+			window.location = "#/classes"
 		},
 		
 		cancel: function(){

@@ -92,5 +92,8 @@
 		date = new Date(klass.get("date"));
 		return -date;
 	};
+	// window.bind("add", function(newClass){
+	// 	if(window.App.classListView)
+	// });
 
 })(jQuery);

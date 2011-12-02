@@ -42,7 +42,7 @@
 		<h1>Aikido Class</h1>
 		<button class='class add'><img src='images/add.png'/></button>
 		<ul class='attributes'>
-			<li><span class="class_date">Date: <input name='date' type='text' value='<%= date %>' placeholder='2000-01-01'/></span></li>
+			<li><span class="class_date datepicker">Date: <input name='date' type='text' value='<%= date %>' placeholder='2000-01-01'/></span></li>
 			<li>Notes: <textarea name='notes' rows="3" cols="50"><%= notes %></textarea></li>
 			<li><ol class="ranks">
 			<% _.each(students, function(student) { %>
