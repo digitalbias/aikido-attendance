@@ -1,12 +1,5 @@
 Simple backbone.js application, running on couchdb
 
-To run the node.js server:
-server.js
-or
-forever start server.js
+This project uses the javascript couchapp, not the python one.
 
-To publish to couchdb,
-
-couchapp push attendance.js http://localhost:5984/aikido
-
-There are still issues with the couchdb deployment. For example, the /classes url does not resolve yet within couchdb to the correct url
+Mostly this project was written to help me get a handle on both backbone and using couchdb in a somewhat realworld way. You are welcome to use it as an teaching/learning tool, but it is very "yucky" from a project orginization standpoint. There are no unit tests, the code isn't very clean, and I'm sure there are a lot of places where it can be refactored.
