@@ -63,6 +63,7 @@
     </script>
 
     <script type="text/template" id="student-template">
+      <section id="student_<%= _id %>">
       <button class='student edit'><img src='images/edit.png'/></button>
       <button class='student delete'><img src='images/delete.png'/></button>
       <span class="student_first_name"><%= first_name %></span>
@@ -74,6 +75,7 @@
           <li><%= rank.name %> (<%= rank.alternate_name %>) <span class='date'><%= rank.date%></span></li>
         <% }); %>
       </ol>
+      </section>
     </script>
 
 	<script type='text/template' id="student-edit-template">

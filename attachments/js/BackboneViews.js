@@ -15,22 +15,28 @@
 		className: 'student',
 		events: {
 			'click .student.edit' : 'edit',
-			'click .student.delete': 'remove'
+			'click .student.delete': 'delete'
 		},
 		
 		edit: function() {
-			this.model.trigger('edit', this.model);
+			this.model.trigger('edit:student', this.model);
 			window.location = "#/edit_student/" + this.model.id;
 		},
 		
-		remove: function() {
-			this.model.trigger('remove', this.model);
-			console.log('Triggered remove', this.model);
+		delete: function() {
+			this.model.trigger('remove:student', this.model);
+			window.students.remove(this.model);
+			
+			if(this.model != null){
+				this.remove();
+				this.model.destroy();
+			}
 		},
 		
 		initialize: function(){
-			_.bindAll(this, 'render');
+			_.bindAll(this, 'render', 'remove');
 			this.model.bind('change', this.render);
+			this.model.bind('remove',this.remove);
 			
 			this.template = _.template($('#student-template').html());
 		},
@@ -56,11 +62,42 @@
 		},
 		
 		save: function(){
+			var first_name = $("[name=first_name]").val();
+			var last_name = $("[name=last_name]").val();
+			var join_date = $("[name=join_date]").val();
+			var previous_training_days = $("[name=previous_training_days]").val();
+			var phone_number = $("[name=phone_number]").val();
+			var birth_date = $("[name=birth_date]").val();
+			var is_active = $("[name=is_active]").val();
+			var program = $("[name=program]").val();
+
+			var id = getId(window.location.hash);
 			
+			var attributes = {
+				"first_name":first_name,
+				"last_name":last_name,
+				"join_date":join_date,
+				"previous_training_days":previous_training_days,
+				"phone_number":phone_number,
+				"birth_date":birth_date,
+				"is_active":is_active,
+				"program":program
+			};
+			
+			if(id == "add_student") {
+				window.students.create(attributes);
+				this.model.trigger('add:student', this.model);
+			} else {
+				model = window.students.get(id);
+				model.set(attributes);
+				model.save();
+				this.model.trigger('update:student', this.model);
+			}
+			
+			window.location = "#"
 		},
 		
 		cancel: function(){
-			console.log("canceling edit");
 			window.location = "#"
 		},
 		
@@ -116,17 +153,22 @@
 		className: 'class',
 		events: {
 			'click .class.edit' : 'edit',
-			'click .class.delete': 'remove'
+			'click .class.delete': 'delete'
 		},
 		
 		edit: function() {
-			this.model.trigger('edit', this.model);
+			this.model.trigger('edit:class', this.model);
 			window.location = "#/edit_class/" + this.model.id;
 		},
 		
-		remove: function() {
-			this.model.trigger('remove', this.model);
-			console.log('Triggered remove', this.model);
+		delete: function() {
+			this.model.trigger('remove:class', this.model);
+			window.classes.remove(this.model);
+
+			if(this.model != null){
+				this.remove();
+				this.model.destroy();
+			}
 		},
 		
 		initialize: function(){
@@ -161,18 +203,19 @@
 			var notes = $("[name=notes]").val();
 			var id = getId(window.location.hash);
 			
+			var attributes = {
+				"date":date,
+				"notes":notes
+			};
+			
 			if(id == "add_class") {
-				window.classes.create({
-					"date":date,
-					"notes":notes
-				});
+				window.classes.create(attributes);
+				this.model.trigger('add:class', this.model);
 			} else {
 				model = window.classes.get(id);
-				model.set({
-					"date":date,
-					"notes":notes
-				});
+				model.set(attributes);
 				model.save();
+				this.model.trigger('update:class', this.model);
 			}
 			
 			window.location = "#/classes"

@@ -68,7 +68,7 @@
 			relatedModel: 'Student',
 			collectionType: 'Students'
 		}]
-
+		
 	});
 
 	window.Classes = Backbone.Collection.extend({
