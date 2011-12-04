@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>attachments/js/BackboneViews.js</string>
+	<string>README</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,6 +21,20 @@
 	<integer>324</integer>
 	<key>metaData</key>
 	<dict>
+		<key>README</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>59</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>attachments/index.html</key>
 		<dict>
 			<key>caret</key>
@@ -110,6 +124,7 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
+		<string>README</string>
 		<string>attachments/index.html</string>
 		<string>attachments/js/AttendanceApp.js</string>
 		<string>attachments/js/BackboneViews.js</string>
