@@ -174,11 +174,32 @@
 		initialize: function(){
 			_.bindAll(this, 'render');
 			this.model.bind('change', this.render);
-			
 			this.template = _.template($('#class-template').html());
 		},
 		
 		render: function(){
+			var renderedContent = this.template(this.model.toJSON());
+			$(this.el).html(renderedContent);
+			return this;
+		}
+	});
+
+	window.AttendeeShowView = Backbone.View.extend({
+		tagName: 'li',
+		className: 'attendee',
+
+		initialize: function(){
+			_.bindAll(this, 'render');
+			this.model.bind('change', this.render);			
+			this.template = _.template($('#attendee-template').html());
+		},
+		
+		render: function(){
+			console.log(this.model);
+			console.log(this.collection);
+			console.log(window.students);
+			console.log(this);
+			
 			var renderedContent = this.template(this.model.toJSON());
 			$(this.el).html(renderedContent);
 			return this;
@@ -231,8 +252,24 @@
 		},
 		
 		render: function(){
+			var $attendees,
+				collection;
+				
 			var renderedContent = this.template(this.model.toJSON());
 			$(this.el).html(renderedContent);
+			
+			$attendees = this.$(".attendees");
+			console.log(">>>>");
+			console.log(this.model);
+			console.log("<<<<");
+			collection = this.model.students;
+			window.students.each(function(studentModel){
+				var view = new AttendeeShowView({
+					model: studentModel,
+					collection:collection
+				});
+				$attendees.append(view.render().el);
+			});
 			return this;
 		}
 		
